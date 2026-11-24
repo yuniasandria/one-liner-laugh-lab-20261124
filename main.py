@@ -8,10 +8,16 @@ Python 3.13, standard library only.
 
 import os
 
-LINE = (
-    "Per my warranty, any sock left on the floor for 48 hours becomes "
+PART_A = "Per my warranty, any sock left on the floor for 48 hours becomes "
+PART_B = (
     "my property. The sock knew the rules \u2014 it just never read them."
 )
+
+# The entry line is assembled from two parts; the joined text is the
+# exact 128-character one-liner, verified by the assert below.
+LINE = PART_A + PART_B
+
+assert "\n" not in LINE and len(LINE) == 128
 
 
 def main():
